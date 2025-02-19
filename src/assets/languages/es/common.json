@@ -1,0 +1,23 @@
+{
+  "page": {
+    "header": {
+      "sub-navbar": "Puertas abiertas a un mundo de Tecnologia",
+      "more": "Descubre más",
+      "languages": {
+        "es": "Espanol",
+        "en": "Ingles"
+      },
+      "sign": {
+        "help": "Ayuda",
+        "sign-up": "Registrar Cuenta",
+        "sign-in": "Iniciar Session"
+      },
+      "navbar": {
+        "home": "Inicio",
+        "shop": "Tienda",
+        "about": "Sobre nosotros",
+        "contact": "Contactenos"
+      }
+    }
+  }
+}

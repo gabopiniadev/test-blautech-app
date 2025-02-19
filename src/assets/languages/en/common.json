@@ -1,0 +1,23 @@
+{
+  "page": {
+    "header": {
+      "sub-navbar": "Open doors to a world of Technology",
+      "more": "Discover more",
+      "languages": {
+        "es": "Spanish",
+        "en": "English"
+      },
+      "sign": {
+        "help": "Help",
+        "sign-up": "Sign Up",
+        "sign-in": "Sign In"
+      },
+      "navbar": {
+        "home": "Home",
+        "shop": "Store",
+        "about": "About us",
+        "contact": "Contact us"
+      }
+    }
+  }
+}
