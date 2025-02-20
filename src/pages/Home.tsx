@@ -4,8 +4,11 @@ import React, {useState} from "react";
 import i18n from "i18next";
 import {useTranslation} from "react-i18next";
 
-// Images
+
 import logoNav from '../assets/images/logo/logo.png'
+
+
+import {Link} from "react-router-dom";
 
 export const Home = () => {
     useBodyClass('sticky-header newsletter-popup-modal');
@@ -14,18 +17,10 @@ export const Home = () => {
     const [isPanelOpen, setIsPanelOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
-    const dropdownRef = React.useRef(null);
-
     const {t} = useTranslation();
 
     const toggleDropdown = () => {
         setIsPanelOpen((prev) => !prev);
-    };
-
-    const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsOpen(false);
-        }
     };
 
     const changeLanguage = async (lng: string) => {
@@ -99,8 +94,8 @@ export const Home = () => {
                                 <div className="header-top-link">
                                     <ul className="quick-link">
                                         <li><a href="#">{t('page.header.sign.help')}</a></li>
-                                        <li><a href="sign-up.html">{t('page.header.sign.sign-up')}</a></li>
-                                        <li><a href="sign-in.html">{t('page.header.sign.sign-in')}</a></li>
+                                        <li><Link to="/register">{t('page.header.sign.sign-up')}</Link></li>
+                                        <li><Link to="/login">{t('page.header.sign.sign-in')}</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -113,9 +108,9 @@ export const Home = () => {
                     <div className="container">
                         <div className="header-navbar">
                             <div className="header-brand">
-                                <a href="index-2.html" className="logo logo-dark">
+                                <Link to="/home" className="logo logo-dark">
                                     <img src={logoNav} alt="Site Logo"/>
-                                </a>
+                                </Link>
                             </div>
                             <div className="header-main-nav">
                                 <nav className="mainmenu-nav">
@@ -127,10 +122,9 @@ export const Home = () => {
                                         </a>
                                     </div>
                                     <ul className="mainmenu">
-                                        <li><a href="contact.html">Home</a></li>
-                                        <li><a href="contact.html">Shop</a></li>
-                                        <li><a href="contact.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><Link to="/home">{t('page.header.navbar.home')}</Link></li>
+                                        <li><Link to="/shop">{t('page.header.navbar.shop')}</Link></li>
+                                        <li><Link to="/about">{t('page.header.navbar.about')}</Link></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -141,11 +135,11 @@ export const Home = () => {
                                             <i className="flaticon-magnifying-glass"></i>
                                         </a>
                                     </li>
-                                    <li className="wishlist">
+                                   {/* <li className="wishlist">
                                         <a href="wishlist.html">
                                             <i className="flaticon-heart"></i>
                                         </a>
-                                    </li>
+                                    </li>*/}
                                     <li className="shopping-cart">
                                         <a href="#" className="cart-dropdown-btn">
                                             <span className="cart-count">3</span>
@@ -160,21 +154,6 @@ export const Home = () => {
                                             <i className="flaticon-person"></i>
                                         </a>
                                         <div className={`my-account-dropdown ${isPanelOpen ? 'open' : ''}`}>
-                                            <span className="title">QUICKLINKS</span>
-                                            <ul>
-                                                <li>
-                                                    <a href="my-account.html">My Account</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Initiate return</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Support</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Language</a>
-                                                </li>
-                                            </ul>
                                             <div className="login-btn">
                                                 <a href="sign-in.html" className="axil-btn btn-bg-primary">Login</a>
                                             </div>
@@ -213,50 +192,37 @@ export const Home = () => {
                                             <div className="slide-action">
                                                 <div className="shop-btn">
                                                     <a href="shop.html" className="axil-btn btn-bg-white">
-                                                        <i className="fal fa-shopping-cart"/>
-                                                        Shop Now
+                                                        <i className="fal fa-shopping-cart"/>  Shop Now
                                                     </a>
                                                 </div>
                                                 <div className="item-rating">
                                                     <div className="thumb">
                                                         <ul>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author1.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author1.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author2.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author2.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author3.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author3.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author4.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author4.png" alt="Author"/>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div className="content">
-                        <span className="rating-icon">
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fal fa-star"/>
-                        </span>
+                                                        <span className="rating-icon">
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fal fa-star"/>
+                                                        </span>
                                                         <span className="review-text">
-                          <span>100+</span> Reviews
-                        </span>
+                                                          <span>100+</span> Reviews
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -275,28 +241,16 @@ export const Home = () => {
                                                     <div className="thumb">
                                                         <ul>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author1.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author1.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author2.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author2.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author3.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author3.png" alt="Author" />
                                                             </li>
                                                             <li>
-                                                                <img
-                                                                    src="assets/images/others/author4.png"
-                                                                    alt="Author"
-                                                                />
+                                                                <img src="/src/assets/images/others/author4.png" alt="Author" />
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -332,25 +286,25 @@ export const Home = () => {
                                                         <ul>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author1.png"
+                                                                    src="/src/assets/images/others/author1.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author2.png"
+                                                                    src="/src/assets/images/others/author2.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author3.png"
+                                                                    src="/src/assets/images/others/author3.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author4.png"
+                                                                    src="/src/assets/images/others/author4.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
@@ -388,41 +342,41 @@ export const Home = () => {
                                                         <ul>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author1.png"
+                                                                    src="/src/assets/images/others/author1.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author2.png"
+                                                                    src="/src/assets/images/others/author2.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author3.png"
+                                                                    src="/src/assets/images/others/author3.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                             <li>
                                                                 <img
-                                                                    src="assets/images/others/author4.png"
+                                                                    src="/src/assets/images/others/author4.png"
                                                                     alt="Author"
                                                                 />
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div className="content">
-                        <span className="rating-icon">
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fal fa-star"/>
-                        </span>
+                                                        <span className="rating-icon">
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fal fa-star"/>
+                                                        </span>
                                                         <span className="review-text">
-                          <span>100+</span> Reviews
-                        </span>
+                                                          <span>100+</span> Reviews
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,7 +394,7 @@ export const Home = () => {
                                             data-sal-duration={1500}
                                         >
                                             <img
-                                                src="assets/images/product/product-38.png"
+                                                src="/src/assets/images/product/product-38.png"
                                                 alt="Product"
                                             />
                                             <div className="product-price">
@@ -455,7 +409,7 @@ export const Home = () => {
                                             data-sal-duration={1500}
                                         >
                                             <img
-                                                src="assets/images/product/product-39.png"
+                                                src="/src/assets/images/product/product-39.png"
                                                 alt="Product"
                                             />
                                             <div className="product-price">
@@ -465,7 +419,7 @@ export const Home = () => {
                                         </div>
                                         <div className="single-slide slick-slide">
                                             <img
-                                                src="assets/images/product/product-38.png"
+                                                src="/src/assets/images/product/product-38.png"
                                                 alt="Product"
                                             />
                                             <div className="product-price">
@@ -475,7 +429,7 @@ export const Home = () => {
                                         </div>
                                         <div className="single-slide slick-slide">
                                             <img
-                                                src="assets/images/product/product-39.png"
+                                                src="/src/assets/images/product/product-39.png"
                                                 alt="Product"
                                             />
                                             <div className="product-price">
@@ -490,21 +444,19 @@ export const Home = () => {
                     </div>
                     <ul className="shape-group">
                         <li className="shape-1">
-                            <img src="assets/images/others/shape-1.png" alt="Shape"/>
+                            <img src="/src/assets/images/others/shape-1.png" alt="Shape"/>
                         </li>
                         <li className="shape-2">
-                            <img src="assets/images/others/shape-2.png" alt="Shape"/>
+                            <img src="/src/assets/images/others/shape-2.png" alt="Shape"/>
                         </li>
                     </ul>
                 </div>
-                {/* Start Categorie Area  */}
                 <div className="axil-categorie-area bg-color-white axil-section-gapcommon">
                     <div className="container">
                         <div className="section-title-wrapper">
-          <span className="title-highlighter highlighter-secondary">
-            {" "}
-              <i className="far fa-tags"/> Categories
-          </span>
+                              <span className="title-highlighter highlighter-secondary">
+                                    {" "} <i className="far fa-tags"/> Categories
+                              </span>
                             <h2 className="title">Browse by Category</h2>
                         </div>
                         <div
@@ -519,15 +471,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-4.png"
+                                            src="/src/assets/images/product/categories/elec-4.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Phones</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -538,15 +488,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-5.png"
+                                            src="/src/assets/images/product/categories/elec-5.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Computers</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -557,15 +505,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-11.png"
+                                            src="/src/assets/images/product/categories/elec-11.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Accessories</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -576,15 +522,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-6.png"
+                                            src="/src/assets/images/product/categories/elec-6.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Laptops</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -595,15 +539,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-2.png"
+                                            src="/src/assets/images/product/categories/elec-2.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Monitors</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -614,15 +556,13 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-7.png"
+                                            src="/src/assets/images/product/categories/elec-7.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Networking</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div
                                     className="categrie-product"
@@ -633,89 +573,76 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-8.png"
+                                            src="/src/assets/images/product/categories/elec-8.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">PC Gaming</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="categrie-product">
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-1.png"
+                                            src="/src/assets/images/product/categories/elec-1.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Smartwatches</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="categrie-product">
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-9.png"
+                                            src="/src/assets/images/product/categories/elec-9.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Headphones</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="categrie-product">
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-10.png"
+                                            src="/src/assets/images/product/categories/elec-10.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Camera &amp; Photo</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="categrie-product">
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-8.png"
+                                            src="/src/assets/images/product/categories/elec-8.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Video Games</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="categrie-product">
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="assets/images/product/categories/elec-1.png"
+                                            src="/src/assets/images/product/categories/elec-1.png"
                                             alt="product categorie"
                                         />
                                         <h6 className="cat-title">Sports</h6>
                                     </a>
                                 </div>
-                                {/* End .categrie-product */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* End Categorie Area  */}
-                {/* Poster Countdown Area  */}
                 <div className="axil-poster-countdown">
                     <div className="container">
                         <div className="poster-countdown-wrap bg-lighter">
@@ -738,7 +665,7 @@ export const Home = () => {
                                 <div className="col-xl-7 col-lg-6">
                                     <div className="poster-countdown-thumbnail">
                                         <img
-                                            src="assets/images/product/poster/poster-03.png"
+                                            src="/src/assets/images/product/poster/poster-03.png"
                                             alt="Poster Product"
                                         />
                                         <div className="music-singnal">
@@ -754,8 +681,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* End Poster Countdown Area  */}
-                {/* Start Expolre Product Area  */}
                 <div className="axil-product-area bg-color-white axil-section-gap">
                     <div className="container">
                         <div className="section-title-wrapper">
@@ -779,12 +704,12 @@ export const Home = () => {
                                                         data-sal-duration={800}
                                                         loading="lazy"
                                                         className="main-img"
-                                                        src="assets/images/product/electric/product-01.png"
+                                                        src="/src/assets/images/product/electric/product-01.png"
                                                         alt="Product Images"
                                                     />
                                                     <img
                                                         className="hover-img"
-                                                        src="assets/images/product/electric/product-08.png"
+                                                        src="/src/assets/images/product/electric/product-08.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -838,7 +763,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -848,12 +772,12 @@ export const Home = () => {
                                                         data-sal-delay={300}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-02.png"
+                                                        src="/src/assets/images/product/electric/product-02.png"
                                                         alt="Product Images"
                                                     />
                                                     <img
                                                         className="hover-img"
-                                                        src="assets/images/product/electric/product-06.png"
+                                                        src="/src/assets/images/product/electric/product-06.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -911,7 +835,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -921,7 +844,7 @@ export const Home = () => {
                                                         data-sal-delay={400}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-03.png"
+                                                        src="/src/assets/images/product/electric/product-03.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -982,7 +905,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -992,12 +914,12 @@ export const Home = () => {
                                                         data-sal-delay={500}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-04.png"
+                                                        src="/src/assets/images/product/electric/product-04.png"
                                                         alt="Product Images"
                                                     />
                                                     <img
                                                         className="hover-img"
-                                                        src="assets/images/product/electric/product-05.png"
+                                                        src="/src/assets/images/product/electric/product-05.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1046,7 +968,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -1056,12 +977,12 @@ export const Home = () => {
                                                         data-sal-delay={200}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-05.png"
+                                                        src="/src/assets/images/product/electric/product-05.png"
                                                         alt="Product Images"
                                                     />
                                                     <img
                                                         className="hover-img"
-                                                        src="assets/images/product/electric/product-04.png"
+                                                        src="/src/assets/images/product/electric/product-04.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1122,7 +1043,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -1132,7 +1052,7 @@ export const Home = () => {
                                                         data-sal-delay={300}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-06.png"
+                                                        src="/src/assets/images/product/electric/product-06.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1193,7 +1113,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -1203,12 +1122,12 @@ export const Home = () => {
                                                         data-sal-delay={400}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-07.png"
+                                                        src="/src/assets/images/product/electric/product-07.png"
                                                         alt="Product Images"
                                                     />
                                                     <img
                                                         className="hover-img"
-                                                        src="assets/images/product/electric/product-08.png"
+                                                        src="/src/assets/images/product/electric/product-08.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1260,7 +1179,6 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
@@ -1270,7 +1188,7 @@ export const Home = () => {
                                                         data-sal-delay={500}
                                                         data-sal-duration={800}
                                                         loading="lazy"
-                                                        src="assets/images/product/electric/product-08.png"
+                                                        src="/src/assets/images/product/electric/product-08.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1331,10 +1249,8 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                 </div>
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout">
                                 <div className="row row--15">
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
@@ -1342,7 +1258,7 @@ export const Home = () => {
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-01.png"
+                                                        src="/src/assets/images/product/electric/product-01.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1386,13 +1302,12 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-02.png"
+                                                        src="/src/assets/images/product/electric/product-02.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1450,13 +1365,13 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
+
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-03.png"
+                                                        src="/src/assets/images/product/electric/product-03.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1517,13 +1432,12 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-04.png"
+                                                        src="/src/assets/images/product/electric/product-04.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1562,80 +1476,12 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-05.png"
-                                                        alt="Product Images"
-                                                    />
-                                                </a>
-                                                <div className="label-block label-right">
-                                                    <div className="product-badget">20% Off</div>
-                                                </div>
-                                                <div className="product-hover-action">
-                                                    <ul className="cart-action">
-                                                        <li className="quickview">
-                                                            <a
-                                                                href="#"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view-modal"
-                                                            >
-                                                                <i className="far fa-eye"/>
-                                                            </a>
-                                                        </li>
-                                                        <li className="select-option">
-                                                            <a href="single-product.html">Select Option</a>
-                                                        </li>
-                                                        <li className="wishlist">
-                                                            <a href="wishlist.html">
-                                                                <i className="far fa-heart"/>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="product-content">
-                                                <div className="inner">
-                                                    <h5 className="title">
-                                                        <a href="single-product.html">3D™ wireless headset</a>
-                                                    </h5>
-                                                    <div className="product-price-variant">
-                                                        <span className="price current-price">$29.99</span>
-                                                        <span className="price old-price">$49.99</span>
-                                                    </div>
-                                                    <div className="color-variant-wrapper">
-                                                        <ul className="color-variant">
-                                                            <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
-                                                            </li>
-                                                            <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
-                                                            </li>
-                                                            <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* End Single Product  */}
-                                    <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                                        <div className="axil-product product-style-one">
-                                            <div className="thumbnail">
-                                                <a href="single-product.html">
-                                                    <img
-                                                        src="assets/images/product/electric/product-06.png"
+                                                        src="/src/assets/images/product/electric/product-05.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1696,13 +1542,12 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-07.png"
+                                                        src="/src/assets/images/product/electric/product-06.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1763,13 +1608,12 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
                                     <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                         <div className="axil-product product-style-one">
                                             <div className="thumbnail">
                                                 <a href="single-product.html">
                                                     <img
-                                                        src="assets/images/product/electric/product-08.png"
+                                                        src="/src/assets/images/product/electric/product-07.png"
                                                         alt="Product Images"
                                                     />
                                                 </a>
@@ -1830,10 +1674,74 @@ export const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Single Product  */}
+                                    <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                                        <div className="axil-product product-style-one">
+                                            <div className="thumbnail">
+                                                <a href="single-product.html">
+                                                    <img
+                                                        src="/src/assets/images/product/electric/product-08.png"
+                                                        alt="Product Images"
+                                                    />
+                                                </a>
+                                                <div className="label-block label-right">
+                                                    <div className="product-badget">20% Off</div>
+                                                </div>
+                                                <div className="product-hover-action">
+                                                    <ul className="cart-action">
+                                                        <li className="quickview">
+                                                            <a
+                                                                href="#"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#quick-view-modal"
+                                                            >
+                                                                <i className="far fa-eye"/>
+                                                            </a>
+                                                        </li>
+                                                        <li className="select-option">
+                                                            <a href="single-product.html">Select Option</a>
+                                                        </li>
+                                                        <li className="wishlist">
+                                                            <a href="wishlist.html">
+                                                                <i className="far fa-heart"/>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="product-content">
+                                                <div className="inner">
+                                                    <h5 className="title">
+                                                        <a href="single-product.html">3D™ wireless headset</a>
+                                                    </h5>
+                                                    <div className="product-price-variant">
+                                                        <span className="price current-price">$29.99</span>
+                                                        <span className="price old-price">$49.99</span>
+                                                    </div>
+                                                    <div className="color-variant-wrapper">
+                                                        <ul className="color-variant">
+                                                            <li className="color-extra-01 active">
+                            <span>
+                              <span className="color"/>
+                            </span>
+                                                            </li>
+                                                            <li className="color-extra-02">
+                            <span>
+                              <span className="color"/>
+                            </span>
+                                                            </li>
+                                                            <li className="color-extra-03">
+                            <span>
+                              <span className="color"/>
+                            </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            {/* End .slick-single-layout */}
                         </div>
                         <div className="row">
                             <div className="col-lg-12 text-center mt--20 mt_sm--0">
@@ -1847,8 +1755,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* End Expolre Product Area  */}
-                {/* Start Testimonila Area  */}
                 <div className="axil-testimoial-area axil-section-gap bg-vista-white">
                     <div className="container">
                         <div className="section-title-wrapper">
@@ -1859,7 +1765,6 @@ export const Home = () => {
           </span>
                             <h2 className="title">Users Feedback</h2>
                         </div>
-                        {/* End .section-title */}
                         <div
                             className="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
                             <div className="slick-single-layout testimonial-style-one">
@@ -1874,7 +1779,7 @@ export const Home = () => {
                                 <div className="media">
                                     <div className="thumbnail">
                                         <img
-                                            src="assets/images/testimonial/image-1.png"
+                                            src="/src/assets/images/testimonial/image-1.png"
                                             alt="testimonial image"
                                         />
                                     </div>
@@ -1883,9 +1788,7 @@ export const Home = () => {
                                         <h6 className="title">James C. Anderson</h6>
                                     </div>
                                 </div>
-                                {/* End .thumbnail */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout testimonial-style-one">
                                 <div className="review-speech">
                                     <p>
@@ -1898,7 +1801,7 @@ export const Home = () => {
                                 <div className="media">
                                     <div className="thumbnail">
                                         <img
-                                            src="assets/images/testimonial/image-2.png"
+                                            src="/src/assets/images/testimonial/image-2.png"
                                             alt="testimonial image"
                                         />
                                     </div>
@@ -1907,9 +1810,7 @@ export const Home = () => {
                                         <h6 className="title">James C. Anderson</h6>
                                     </div>
                                 </div>
-                                {/* End .thumbnail */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout testimonial-style-one">
                                 <div className="review-speech">
                                     <p>
@@ -1922,7 +1823,7 @@ export const Home = () => {
                                 <div className="media">
                                     <div className="thumbnail">
                                         <img
-                                            src="assets/images/testimonial/image-3.png"
+                                            src="/src/assets/images/testimonial/image-3.png"
                                             alt="testimonial image"
                                         />
                                     </div>
@@ -1931,9 +1832,7 @@ export const Home = () => {
                                         <h6 className="title">James C. Anderson</h6>
                                     </div>
                                 </div>
-                                {/* End .thumbnail */}
                             </div>
-                            {/* End .slick-single-layout */}
                             <div className="slick-single-layout testimonial-style-one">
                                 <div className="review-speech">
                                     <p>
@@ -1946,7 +1845,7 @@ export const Home = () => {
                                 <div className="media">
                                     <div className="thumbnail">
                                         <img
-                                            src="assets/images/testimonial/image-2.png"
+                                            src="/src/assets/images/testimonial/image-2.png"
                                             alt="testimonial image"
                                         />
                                     </div>
@@ -1955,14 +1854,10 @@ export const Home = () => {
                                         <h6 className="title">James C. Anderson</h6>
                                     </div>
                                 </div>
-                                {/* End .thumbnail */}
                             </div>
-                            {/* End .slick-single-layout */}
                         </div>
                     </div>
                 </div>
-                {/* End Testimonila Area  */}
-                {/* Start New Arrivals Product Area  */}
                 <div className="axil-new-arrivals-product-area bg-color-white axil-section-gap pb--0">
                     <div className="container">
                         <div className="product-area pb--50">
@@ -1983,7 +1878,7 @@ export const Home = () => {
                                                     data-sal="zoom-out"
                                                     data-sal-delay={200}
                                                     data-sal-duration={500}
-                                                    src="assets/images/product/electric/product-05.png"
+                                                    src="/src/assets/images/product/electric/product-05.png"
                                                     alt="Product Images"
                                                 />
                                             </a>
@@ -2044,7 +1939,6 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* End .slick-single-layout */}
                                 <div className="slick-single-layout">
                                     <div className="axil-product product-style-two">
                                         <div className="thumbnail">
@@ -2053,7 +1947,7 @@ export const Home = () => {
                                                     data-sal="zoom-out"
                                                     data-sal-delay={300}
                                                     data-sal-duration={500}
-                                                    src="assets/images/product/electric/product-06.png"
+                                                    src="/src/assets/images/product/electric/product-06.png"
                                                     alt="Product Images"
                                                 />
                                             </a>
@@ -2111,7 +2005,6 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* End .slick-single-layout */}
                                 <div className="slick-single-layout">
                                     <div className="axil-product product-style-two">
                                         <div className="thumbnail">
@@ -2120,7 +2013,7 @@ export const Home = () => {
                                                     data-sal="zoom-out"
                                                     data-sal-delay={400}
                                                     data-sal-duration={500}
-                                                    src="assets/images/product/electric/product-07.png"
+                                                    src="/src/assets/images/product/electric/product-07.png"
                                                     alt="Product Images"
                                                 />
                                             </a>
@@ -2181,7 +2074,6 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* End .slick-single-layout */}
                                 <div className="slick-single-layout">
                                     <div className="axil-product product-style-two">
                                         <div className="thumbnail">
@@ -2190,7 +2082,7 @@ export const Home = () => {
                                                     data-sal="zoom-out"
                                                     data-sal-delay={500}
                                                     data-sal-duration={500}
-                                                    src="assets/images/product/electric/product-08.png"
+                                                    src="/src/assets/images/product/electric/product-08.png"
                                                     alt="Product Images"
                                                 />
                                             </a>
@@ -2251,7 +2143,6 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* End .slick-single-layout */}
                                 <div className="slick-single-layout">
                                     <div className="axil-product product-style-two">
                                         <div className="thumbnail">
@@ -2260,7 +2151,7 @@ export const Home = () => {
                                                     data-sal="zoom-out"
                                                     data-sal-delay={100}
                                                     data-sal-duration={500}
-                                                    src="assets/images/product/electric/product-04.png"
+                                                    src="/src/assets/images/product/electric/product-04.png"
                                                     alt="Product Images"
                                                 />
                                             </a>
@@ -2321,13 +2212,10 @@ export const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* End .slick-single-layout */}
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* End New Arrivals Product Area  */}
-                {/* Start Most Sold Product Area  */}
                 <div className="axil-most-sold-product axil-section-gap">
                     <div className="container">
                         <div className="product-area pb--50">
@@ -2346,7 +2234,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={100}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-09.png"
+                                                    src="/src/assets/images/product/electric/product-09.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2390,7 +2278,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={200}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-10.png"
+                                                    src="/src/assets/images/product/electric/product-10.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2433,7 +2321,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={300}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-11.png"
+                                                    src="/src/assets/images/product/electric/product-11.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2476,7 +2364,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={400}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-12.png"
+                                                    src="/src/assets/images/product/electric/product-12.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2519,7 +2407,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={500}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-13.png"
+                                                    src="/src/assets/images/product/electric/product-13.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2562,7 +2450,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={600}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-14.png"
+                                                    src="/src/assets/images/product/electric/product-14.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2605,7 +2493,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={400}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-15.png"
+                                                    src="/src/assets/images/product/electric/product-15.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2648,7 +2536,7 @@ export const Home = () => {
                                                     data-sal="zoom-in"
                                                     data-sal-delay={500}
                                                     data-sal-duration={1500}
-                                                    src="assets/images/product/electric/product-16.png"
+                                                    src="/src/assets/images/product/electric/product-16.png"
                                                     alt="Yantiti Leather Bags"
                                                 />
                                             </a>
@@ -2687,8 +2575,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* End Most Sold Product Area  */}
-                {/* Start Why Choose Area  */}
                 <div className="axil-why-choose-area pb--50 pb_sm--30">
                     <div className="container">
                         <div className="section-title-wrapper section-title-center">
@@ -2702,7 +2588,7 @@ export const Home = () => {
                             <div className="col">
                                 <div className="service-box">
                                     <div className="icon">
-                                        <img src="assets/images/icons/service6.png" alt="Service"/>
+                                        <img src="/src/assets/images/icons/service6.png" alt="Service"/>
                                     </div>
                                     <h6 className="title">Fast &amp; Secure Delivery</h6>
                                 </div>
@@ -2710,7 +2596,7 @@ export const Home = () => {
                             <div className="col">
                                 <div className="service-box">
                                     <div className="icon">
-                                        <img src="assets/images/icons/service7.png" alt="Service"/>
+                                        <img src="/src/assets/images/icons/service7.png" alt="Service"/>
                                     </div>
                                     <h6 className="title">100% Guarantee On Product</h6>
                                 </div>
@@ -2718,7 +2604,7 @@ export const Home = () => {
                             <div className="col">
                                 <div className="service-box">
                                     <div className="icon">
-                                        <img src="assets/images/icons/service8.png" alt="Service"/>
+                                        <img src="/src/assets/images/icons/service8.png" alt="Service"/>
                                     </div>
                                     <h6 className="title">24 Hour Return Policy</h6>
                                 </div>
@@ -2726,7 +2612,7 @@ export const Home = () => {
                             <div className="col">
                                 <div className="service-box">
                                     <div className="icon">
-                                        <img src="assets/images/icons/service9.png" alt="Service"/>
+                                        <img src="/src/assets/images/icons/service9.png" alt="Service"/>
                                     </div>
                                     <h6 className="title">24 Hour Return Policy</h6>
                                 </div>
@@ -2734,7 +2620,7 @@ export const Home = () => {
                             <div className="col">
                                 <div className="service-box">
                                     <div className="icon">
-                                        <img src="assets/images/icons/service10.png" alt="Service"/>
+                                        <img src="/src/assets/images/icons/service10.png" alt="Service"/>
                                     </div>
                                     <h6 className="title">Next Level Pro Quality</h6>
                                 </div>
@@ -2742,8 +2628,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* End Why Choose Area  */}
-                {/* Start Axil Product Poster Area  */}
                 <div className="axil-poster">
                     <div className="container">
                         <div className="row">
@@ -2751,7 +2635,7 @@ export const Home = () => {
                                 <div className="single-poster">
                                     <a href="shop.html">
                                         <img
-                                            src="assets/images/product/poster/poster-01.png"
+                                            src="/src/assets/images/product/poster/poster-01.png"
                                             alt="eTrade promotion poster"
                                         />
                                         <div className="poster-content">
@@ -2764,16 +2648,14 @@ export const Home = () => {
                     </span>
                                             </div>
                                         </div>
-                                        {/* End .poster-content */}
                                     </a>
                                 </div>
-                                {/* End .single-poster */}
                             </div>
                             <div className="col-lg-6 mb--30">
                                 <div className="single-poster">
                                     <a href="shop-sidebar.html">
                                         <img
-                                            src="assets/images/product/poster/poster-02.png"
+                                            src="/src/assets/images/product/poster/poster-02.png"
                                             alt="eTrade promotion poster"
                                         />
                                         <div className="poster-content content-left">
@@ -2784,10 +2666,8 @@ export const Home = () => {
                                                 </h3>
                                             </div>
                                         </div>
-                                        {/* End .poster-content */}
                                     </a>
                                 </div>
-                                {/* End .single-poster */}
                             </div>
                         </div>
                     </div>
@@ -2797,10 +2677,10 @@ export const Home = () => {
                     <div className="container">
                         <div className="etrade-newsletter-wrapper bg_image bg_image--5">
                             <div className="newsletter-content">
-            <span className="title-highlighter highlighter-primary2">
-              <i className="fas fa-envelope-open"/>
-              Newsletter
-            </span>
+                                <span className="title-highlighter highlighter-primary2">
+                                  <i className="fas fa-envelope-open"/>
+                                  Newsletter
+                                </span>
                                 <h2 className="title mb--40 mb_sm--30">Get weekly update</h2>
                                 <div className="input-group newsletter-form">
                                     <div className="position-relative newsletter-inner mb--15">
@@ -2822,7 +2702,7 @@ export const Home = () => {
                         <div className="col">
                             <div className="service-box service-style-2">
                                 <div className="icon">
-                                    <img src="assets/images/icons/service1.png" alt="Service"/>
+                                    <img src="/src/assets/images/icons/service1.png" alt="Service"/>
                                 </div>
                                 <div className="content">
                                     <h6 className="title">Fast &amp; Secure Delivery</h6>
@@ -2833,7 +2713,7 @@ export const Home = () => {
                         <div className="col">
                             <div className="service-box service-style-2">
                                 <div className="icon">
-                                    <img src="assets/images/icons/service2.png" alt="Service"/>
+                                    <img src="/src/assets/images/icons/service2.png" alt="Service"/>
                                 </div>
                                 <div className="content">
                                     <h6 className="title">Money Back Guarantee</h6>
@@ -2844,7 +2724,7 @@ export const Home = () => {
                         <div className="col">
                             <div className="service-box service-style-2">
                                 <div className="icon">
-                                    <img src="assets/images/icons/service3.png" alt="Service"/>
+                                    <img src="/src/assets/images/icons/service3.png" alt="Service"/>
                                 </div>
                                 <div className="content">
                                     <h6 className="title">24 Hour Return Policy</h6>
@@ -2855,7 +2735,7 @@ export const Home = () => {
                         <div className="col">
                             <div className="service-box service-style-2">
                                 <div className="icon">
-                                    <img src="assets/images/icons/service4.png" alt="Service"/>
+                                    <img src="/src/assets/images/icons/service4.png" alt="Service"/>
                                 </div>
                                 <div className="content">
                                     <h6 className="title">Pro Quality Support</h6>

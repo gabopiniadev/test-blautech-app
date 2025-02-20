@@ -1,6 +1,5 @@
 //import { useTranslation } from "react-i18next";
 
-// Images
 import cartImageOne from '../assets/images/icons/cart/cart-1.png'
 import cartImageTwo from '../assets/images/icons/cart/cart-2.png'
 import cartImageFive from '../assets/images/icons/cart/cart-5.png'
@@ -8,7 +7,7 @@ import appStore from '../assets/images/others/app-store.png';
 import playStore from '../assets/images/others/play-store.png';
 
 
-const Footer = ({ isModalOpen }) => {
+const Footer = ({isModalOpen}) => {
     //const { t } = useTranslation();
 
     return (
@@ -21,16 +20,14 @@ const Footer = ({ isModalOpen }) => {
                                 <div className="axil-footer-widget">
                                     <h5 className="widget-title">Support</h5>
                                     <div className="inner">
-                                        <p>685 Market Street, <br/>
-                                            Las Vegas, LA 95820, <br/>
-                                            United States.
+                                        <p>Venezuela <br/>
+                                            Valencia <br/>
                                         </p>
                                         <ul className="support-list-item">
                                             <li><a href="mailto:example@domain.com"><i
-                                                className="fal fa-envelope-open"></i> example@domain.com</a></li>
-                                            <li><a href="tel:(+01)850-315-5862"><i
-                                                className="fal fa-phone-alt"></i> (+01)
-                                                850-315-5862</a></li>
+                                                className="fal fa-envelope-open"></i> technicaltest@test.com</a></li>
+                                            <li><a href="tel:+58)412 4931541"><i
+                                                className="fal fa-phone-alt"></i> (+58)412 4931541</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -99,8 +96,7 @@ const Footer = ({ isModalOpen }) => {
                             <div className="col-xl-4 col-lg-12">
                                 <div className="copyright-left d-flex flex-wrap justify-content-center">
                                     <ul className="quick-link">
-                                        <li>© 2025. All rights reserved by <a target="_blank"
-                                                                              href="https://axilthemes.com/">Axilthemes</a>.
+                                        <li>© 2025. All rights reserved by GaboDev.
                                         </li>
                                     </ul>
                                 </div>
@@ -261,31 +257,28 @@ const Footer = ({ isModalOpen }) => {
                                                     sagittis dictum libero, eu dignissim tellus.
                                                 </p>
                                                 <div className="product-variations-wrapper">
-                                                    {/* Start Product Variation  */}
                                                     <div className="product-variation">
                                                         <h6 className="title">Colors:</h6>
                                                         <div className="color-variant-wrapper">
                                                             <ul className="color-variant mt--0">
                                                                 <li className="color-extra-01 active">
-                              <span>
-                                <span className="color"/>
-                              </span>
+                                                                  <span>
+                                                                    <span className="color"/>
+                                                                  </span>
                                                                 </li>
                                                                 <li className="color-extra-02">
-                              <span>
-                                <span className="color"/>
-                              </span>
+                                                                  <span>
+                                                                    <span className="color"/>
+                                                                  </span>
                                                                 </li>
                                                                 <li className="color-extra-03">
-                              <span>
-                                <span className="color"/>
-                              </span>
+                                                                  <span>
+                                                                    <span className="color"/>
+                                                                  </span>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    {/* End Product Variation  */}
-                                                    {/* Start Product Variation  */}
                                                     <div className="product-variation">
                                                         <h6 className="title">Size:</h6>
                                                         <ul className="range-variant">
@@ -296,16 +289,11 @@ const Footer = ({ isModalOpen }) => {
                                                             <li>xl</li>
                                                         </ul>
                                                     </div>
-                                                    {/* End Product Variation  */}
                                                 </div>
-                                                {/* Start Product Action Wrapper  */}
                                                 <div className="product-action-wrapper d-flex-center">
-                                                    {/* Start Quentity Action  */}
                                                     <div className="pro-qty">
                                                         <input type="text" defaultValue={1}/>
                                                     </div>
-                                                    {/* End Quentity Action  */}
-                                                    {/* Start Product Action  */}
                                                     <ul className="product-action d-flex-center mb--0">
                                                         <li className="add-to-cart">
                                                             <a
@@ -324,9 +312,7 @@ const Footer = ({ isModalOpen }) => {
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                    {/* End Product Action  */}
                                                 </div>
-                                                {/* End Product Action Wrapper  */}
                                             </div>
                                         </div>
                                     </div>
@@ -377,16 +363,16 @@ const Footer = ({ isModalOpen }) => {
                                 </div>
                                 <div className="product-content">
                                     <div className="product-rating">
-                <span className="rating-icon">
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fal fa-star"/>
-                </span>
+                                        <span className="rating-icon">
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fal fa-star"/>
+                                        </span>
                                         <span className="rating-number">
-                  <span>100+</span> Reviews
-                </span>
+                                          <span>100+</span> Reviews
+                                        </span>
                                     </div>
                                     <h6 className="product-title">
                                         <a href="single-product.html">Media Remote</a>
@@ -416,16 +402,16 @@ const Footer = ({ isModalOpen }) => {
                                 </div>
                                 <div className="product-content">
                                     <div className="product-rating">
-                <span className="rating-icon">
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fal fa-star"/>
-                </span>
+                                        <span className="rating-icon">
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fal fa-star"/>
+                                        </span>
                                         <span className="rating-number">
-                  <span>100+</span> Reviews
-                </span>
+                                          <span>100+</span> Reviews
+                                        </span>
                                     </div>
                                     <h6 className="product-title">
                                         <a href="single-product.html">Media Remote</a>
@@ -473,13 +459,13 @@ const Footer = ({ isModalOpen }) => {
                                 </div>
                                 <div className="item-content">
                                     <div className="product-rating">
-                <span className="icon">
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                </span>
+                                        <span className="icon">
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                        </span>
                                         <span className="rating-number">(64)</span>
                                     </div>
                                     <h3 className="item-title">
@@ -511,13 +497,13 @@ const Footer = ({ isModalOpen }) => {
                                 </div>
                                 <div className="item-content">
                                     <div className="product-rating">
-                <span className="icon">
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                </span>
+                                        <span className="icon">
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                        </span>
                                         <span className="rating-number">(4)</span>
                                     </div>
                                     <h3 className="item-title">
@@ -549,13 +535,13 @@ const Footer = ({ isModalOpen }) => {
                                 </div>
                                 <div className="item-content">
                                     <div className="product-rating">
-                <span className="icon">
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                  <i className="fas fa-star"/>
-                </span>
+                                        <span className="icon">
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                          <i className="fas fa-star"/>
+                                        </span>
                                         <span className="rating-number">(6)</span>
                                     </div>
                                     <h3 className="item-title">
@@ -603,7 +589,8 @@ const Footer = ({ isModalOpen }) => {
                         </button>
                         <div className="content">
                             <div className="section-title-wrapper">
-                                <span className="title-highlighter highlighter-primary"> {" "} <i className="far fa-shopping-basket"/> Don’t Miss!! </span>
+                                <span className="title-highlighter highlighter-primary"> {" "} <i
+                                    className="far fa-shopping-basket"/> Don’t Miss!! </span>
                                 <h3 className="title">
                                     Best Sales Offer
                                     <br/> Grab Yours

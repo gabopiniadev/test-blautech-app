@@ -1,5 +1,5 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
 // Language Project
 import '../src/utils/i18n.ts';
@@ -20,37 +20,65 @@ import '../src/assets/css/vendor/flaticon/flaticon.css';
 import '../src/assets/css/vendor/slick.css';
 import '../src/assets/css/vendor/slick-theme.css';
 import '../src/assets/css/vendor/jquery-ui.min.css';
-import '../src/assets/css/vendor//sal.css';
+import '../src/assets/css/vendor/sal.css';
 import '../src/assets/css/vendor/magnific-popup.css';
-import '../src/assets//css/style.min.css';
+import '../src/assets/css/style.min.css';
 
-// Loading JavaScript Proejct
-const loadScript = (src: string) => {
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = true;
-    document.body.appendChild(script);
+const useLoadScripts = () => {
+    useEffect(() => {
+        const loadScript = (src: string): Promise<void> => {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.src = src;
+                script.async = true;
+                script.onload = () => resolve();
+                script.onerror = () => reject(new Error(`Error al cargar el script: ${src}`));
+                document.body.appendChild(script);
+            });
+        };
+
+        const loadAllScripts = async () => {
+            try {
+                await loadScript("/src/assets/js/vendor/modernizr.min.js");
+                await loadScript("/src/assets/js/vendor/jquery.js");
+                await loadScript("/src/assets/js/vendor/popper.min.js");
+                await loadScript("/src/assets/js/vendor/bootstrap.min.js");
+                await loadScript("/src/assets/js/vendor/slick.min.js");
+                await loadScript("/src/assets/js/vendor/js.cookie.js");
+                await loadScript("/src/assets/js/vendor/jquery-ui.min.js");
+                await loadScript("/src/assets/js/vendor/jquery.ui.touch-punch.min.js");
+                await loadScript("/src/assets/js/vendor/jquery.countdown.min.js");
+                await loadScript("/src/assets/js/vendor/sal.js");
+                await loadScript("/src/assets/js/vendor/jquery.magnific-popup.min.js");
+                await loadScript("/src/assets/js/vendor/imagesloaded.pkgd.min.js");
+                await loadScript("/src/assets/js/vendor/isotope.pkgd.min.js");
+                await loadScript("/src/assets/js/vendor/counterup.js");
+                await loadScript("/src/assets/js/vendor/waypoints.min.js");
+                await loadScript("/src/assets/js/main.js");
+                console.log("Todos los scripts cargados correctamente.");
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        loadAllScripts();
+
+        return () => {
+            const vendorScripts = document.querySelectorAll("script[src*='/src/assets/js/vendor/']");
+            vendorScripts.forEach(script => script.remove());
+        };
+    }, []);
 };
 
-loadScript("/src/assets/js/vendor/modernizr.min.js");
-loadScript("/src/assets/js/vendor/jquery.js");
-loadScript("/src/assets/js/vendor/popper.min.js");
-loadScript("/src/assets/js/vendor/bootstrap.min.js");
-loadScript("/src/assets/js/vendor/slick.min.js");
-loadScript("/src/assets/js/vendor/js.cookie.js");
-loadScript("/src/assets/js/vendor/jquery-ui.min.js");
-loadScript("/src/assets/js/vendor/jquery.ui.touch-punch.min.js");
-loadScript("/src/assets/js/vendor/jquery.countdown.min.js");
-loadScript("/src/assets/js/vendor/sal.js");
-loadScript("/src/assets/js/vendor/jquery.magnific-popup.min.js");
-loadScript("/src/assets/js/vendor/imagesloaded.pkgd.min.js");
-loadScript("/src/assets/js/vendor/isotope.pkgd.min.js");
-loadScript("/src/assets/js/vendor/counterup.js");
-loadScript("/src/assets/js/vendor/waypoints.min.js");
-loadScript("/src/assets/js/main.js");
+
+const App = () => {
+    useLoadScripts();
+
+    return <AppRouter />;
+};
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-      <AppRouter />
-  </StrictMode>,
-)
+    <StrictMode>
+        <App />
+    </StrictMode>,
+);
