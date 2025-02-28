@@ -1,5 +1,4 @@
 import {Header} from "../components/Header.tsx";
-import React from "react";
 
 export const Checkout = () => {
     return (

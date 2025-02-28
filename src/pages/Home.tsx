@@ -1,6 +1,6 @@
 import useBodyClass from "../hooks/useBodyClass.ts";
 import Footer from "../components/Footer.tsx";
-import React, {useState} from "react";
+import {useState} from "react";
 import i18n from "i18next";
 import {useTranslation} from "react-i18next";
 

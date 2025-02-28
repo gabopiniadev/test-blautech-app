@@ -2,22 +2,30 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import common_es from "../assets/languages/es/common.json";
+import common_en from "../assets/languages/en/common.json";
 
 i18n
-    .use(HttpBackend)
-    .use(LanguageDetector)
     .use(initReactI18next)
+    .use(LanguageDetector)
+    .use(HttpBackend)
     .init({
-        fallbackLng: 'en',
+        fallbackLng: "es",
+        lng: "es",
         debug: true,
         interpolation: {
             escapeValue: false,
         },
-        backend: {
-            loadPath: '/src/assets/languages/{{lng}}/common.json',
+        resources: {
+            es: {
+                common: common_es,
+            },
+            en: {
+                common: common_en,
+            },
         },
-        ns: ['translation'],
-        defaultNS: 'translation',
+        ns: ["common"],
+        defaultNS: "common",
     });
 
 export default i18n;
