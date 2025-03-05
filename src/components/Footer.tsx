@@ -1,4 +1,4 @@
-//import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import cartImageOne from '../assets/images/icons/cart/cart-1.png'
 import cartImageTwo from '../assets/images/icons/cart/cart-2.png'
@@ -7,8 +7,8 @@ import appStore from '../assets/images/others/app-store.png';
 import playStore from '../assets/images/others/play-store.png';
 
 
-const Footer = ({isModalOpen}) => {
-    //const { t } = useTranslation();
+const Footer = ({ isModalOpen, isModalCart }) => {
+    const { t } = useTranslation();
 
     return (
         <>
@@ -435,7 +435,7 @@ const Footer = ({isModalOpen}) => {
                 </div>
             </div>
 
-            <div className={`cart-dropdown ${isModalOpen ? 'open' : ''}`} id="cart-dropdown">
+            <div className={`cart-dropdown ${isModalCart ? 'open' : ''}`} id="cart-dropdown">
                 <div className="cart-content-wrap">
                     <div className="cart-header">
                         <h2 className="header-title">Cart review</h2>

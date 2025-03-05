@@ -131,7 +131,10 @@ export function Shop() {
                     </div>
                 )}
             </main>
-            <Footer isModalOpen={isOpenModal} />
+            <Footer
+                isModalOpen={isOpenModal}
+                isModalCart={true}
+            />
         </>
     );
 }

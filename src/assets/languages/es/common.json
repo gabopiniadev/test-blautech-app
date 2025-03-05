@@ -18,6 +18,16 @@
         "about": "Sobre nosotros",
         "contact": "Contactenos"
       }
+    },
+    "shop": {
+      "categories": {
+        "clothes": "Ropa Deportiva",
+        "footwear": "Calzado Deportivo",
+        "equipment": "Equipos y Accesorios",
+        "outdoors": "Deportes al Aire Libre",
+        "supplements": "Suplementos y Nutrición",
+        "fitness": "Fitness y Entrenamiento"
+      }
     }
   }
 }

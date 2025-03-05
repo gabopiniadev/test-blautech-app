@@ -18,6 +18,16 @@
         "about": "About us",
         "contact": "Contact us"
       }
+    },
+    "shop": {
+      "categories": {
+        "clothes": "Sportswear",
+        "footwear": "Sports Footwear",
+        "equipment": "Equipment and Accessories",
+        "outdoors": "Outdoor Sports",
+        "supplements": "Supplements and Nutrition",
+        "fitness": "Fitness and Training"
+      }
     }
   }
 }

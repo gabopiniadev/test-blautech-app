@@ -555,7 +555,10 @@ export const Profile = () => {
                     </div>
                 </div>
             </main>
-            <Footer isModalOpen={false} />
+            <Footer
+                isModalOpen={false}
+                isModalCart={true}
+            />
             <Dialog header="Header" visible={visible} onHide={() => {if (!visible) return; setVisible(false); }}  style={{ width: '60vw' }} breakpoints={{ '960px': '75vw', '641px': '100vw' }}>
                 <br />
                 <form onSubmit={handleUpdateProduct}>

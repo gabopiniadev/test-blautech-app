@@ -145,7 +145,7 @@ export const Header = () => {
                                         </Link>
                                     </div>
                                     <ul className="mainmenu">
-                                        <li><Link to="/home">{t('page.header.navbar.home')}</Link></li>
+                                        <li><Link to="/">{t('page.header.navbar.home')}</Link></li>
                                         <li><Link to="/shop">{t('page.header.navbar.shop')}</Link></li>
                                         <li><Link to="/about">{t('page.header.navbar.about')}</Link></li>
                                     </ul>

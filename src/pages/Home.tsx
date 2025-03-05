@@ -1,6 +1,6 @@
 import useBodyClass from "../hooks/useBodyClass.ts";
 import Footer from "../components/Footer.tsx";
-import {useState} from "react";
+import { useState } from "react";
 import i18n from "i18next";
 import {useTranslation} from "react-i18next";
 
@@ -15,9 +15,16 @@ export const Home = () => {
 
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
     const [isPanelOpen, setIsPanelOpen] = useState(false);
+    const [isOpenLan, setIsOpenLan] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isOpenCart, setIsOpenCart] = useState(false);
 
     const {t} = useTranslation();
+
+    const toggleLanguageDropdown = () => {
+        setIsOpenLan((prev) => !prev);
+    };
+
 
     const toggleDropdown = () => {
         setIsPanelOpen((prev) => !prev);
@@ -49,26 +56,32 @@ export const Home = () => {
                                         <button
                                             className="dropdown-toggle"
                                             type="button"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
+                                            aria-expanded={isOpen}
+                                            onClick={toggleLanguageDropdown}
                                         >
                                             {t(`page.header.languages.${selectedLanguage}`)}
                                         </button>
-                                        <ul className="dropdown-menu">
+                                        <ul className={`dropdown-menu ${isOpenLan ? 'show' : ''}`}>
                                             <li>
                                                 <a
                                                     className="dropdown-item"
-                                                    onClick={() => changeLanguage('en')}
+                                                    onClick={() => {
+                                                        changeLanguage('en');
+                                                        setIsOpenLan(false);
+                                                    }}
                                                 >
-                                                    {t(`page.header.languages.en`)}
+                                                    {t('page.header.languages.en')}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a
                                                     className="dropdown-item"
-                                                    onClick={() => changeLanguage('es')}
+                                                    onClick={() => {
+                                                        changeLanguage('es');
+                                                        setIsOpenLan(false);
+                                                    }}
                                                 >
-                                                    {t(`page.header.languages.es`)}
+                                                    {t('page.header.languages.es')}
                                                 </a>
                                             </li>
                                         </ul>
@@ -85,7 +98,6 @@ export const Home = () => {
                                         </button>
                                         <ul className="dropdown-menu">
                                             <li><a className="dropdown-item" href="#">USD</a></li>
-                                            <li><a className="dropdown-item" href="#">EUR</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -108,7 +120,7 @@ export const Home = () => {
                     <div className="container">
                         <div className="header-navbar">
                             <div className="header-brand">
-                                <Link to="/home" className="logo logo-dark">
+                                <Link to="/" className="logo logo-dark">
                                     <img src={logoNav} alt="Site Logo"/>
                                 </Link>
                             </div>
@@ -117,12 +129,12 @@ export const Home = () => {
                                     <button className="mobile-close-btn mobile-nav-toggler"><i
                                         className="fas fa-times"></i></button>
                                     <div className="mobile-nav-brand">
-                                        <a href="index-2.html" className="logo">
+                                        <Link to="/" className="logo">
                                             <img src={logoNav} alt="Site Logo"/>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <ul className="mainmenu">
-                                        <li><Link to="/home">{t('page.header.navbar.home')}</Link></li>
+                                        <li><Link to="/">{t('page.header.navbar.home')}</Link></li>
                                         <li><Link to="/shop">{t('page.header.navbar.shop')}</Link></li>
                                         <li><Link to="/about">{t('page.header.navbar.about')}</Link></li>
                                     </ul>
@@ -141,10 +153,10 @@ export const Home = () => {
                                         </a>
                                     </li>*/}
                                     <li className="shopping-cart">
-                                        <a href="#" className="cart-dropdown-btn">
-                                            <span className="cart-count">3</span>
+                                        <Link to="/shop" className="cart-dropdown-btn">
+                                           {/* <span className="cart-count">3</span>*/}
                                             <i className="flaticon-shopping-cart"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="my-account">
                                         <a href="#" onClick={(e) => {
@@ -155,10 +167,10 @@ export const Home = () => {
                                         </a>
                                         <div className={`my-account-dropdown ${isPanelOpen ? 'open' : ''}`}>
                                             <div className="login-btn">
-                                                <a href="sign-in.html" className="axil-btn btn-bg-primary">Login</a>
+                                                <Link to="/login" className="axil-btn btn-bg-primary">Login</Link>
                                             </div>
-                                            <div className="reg-footer text-center">No account yet? <a
-                                                href="sign-up.html" className="btn-link">REGISTER HERE.</a></div>
+                                            <div className="reg-footer text-center">No account yet? <Link
+                                                to="/register" className="btn-link">REGISTER HERE.</Link></div>
                                         </div>
                                     </li>
 
@@ -394,7 +406,7 @@ export const Home = () => {
                                             data-sal-duration={1500}
                                         >
                                             <img
-                                                src="/src/assets/images/product/product-38.png"
+                                                src="/src/assets/images/shop/slider/sport-nike.png"
                                                 alt="Product"
                                             />
                                             <div className="product-price">
@@ -408,10 +420,6 @@ export const Home = () => {
                                             data-sal-delay={600}
                                             data-sal-duration={1500}
                                         >
-                                            <img
-                                                src="/src/assets/images/product/product-39.png"
-                                                alt="Product"
-                                            />
                                             <div className="product-price">
                                                 <span className="text">From</span>
                                                 <span className="price-amount">$49.00</span>
@@ -684,10 +692,10 @@ export const Home = () => {
                 <div className="axil-product-area bg-color-white axil-section-gap">
                     <div className="container">
                         <div className="section-title-wrapper">
-          <span className="title-highlighter highlighter-primary">
-            {" "}
-              <i className="far fa-shopping-basket"/> Our Products
-          </span>
+                            <span className="title-highlighter highlighter-primary">
+                            {" "}
+                                <i className="far fa-shopping-basket"/> Our Products
+                            </span>
                             <h2 className="title">Explore our Products</h2>
                         </div>
                         <div
@@ -1858,14 +1866,14 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="axil-new-arrivals-product-area bg-color-white axil-section-gap pb--0">
+                {/*<div className="axil-new-arrivals-product-area bg-color-white axil-section-gap pb--0">
                     <div className="container">
                         <div className="product-area pb--50">
                             <div className="section-title-wrapper">
-            <span className="title-highlighter highlighter-primary">
-              <i className="far fa-shopping-basket"/>
-              This Week’s
-            </span>
+                                <span className="title-highlighter highlighter-primary">
+                                  <i className="far fa-shopping-basket"/>
+                                  This Week’s
+                                </span>
                                 <h2 className="title">New Arrivals</h2>
                             </div>
                             <div
@@ -2215,14 +2223,14 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="axil-most-sold-product axil-section-gap">
+                </div>*/}
+                {/*<div className="axil-most-sold-product axil-section-gap">
                     <div className="container">
                         <div className="product-area pb--50">
                             <div className="section-title-wrapper section-title-center">
-            <span className="title-highlighter highlighter-primary">
-              <i className="fas fa-star"/> Most Sold
-            </span>
+                                <span className="title-highlighter highlighter-primary">
+                                  <i className="fas fa-star"/> Most Sold
+                                </span>
                                 <h2 className="title">Most Sold in eTrade Store</h2>
                             </div>
                             <div className="row row-cols-xl-2 row-cols-1 row--15">
@@ -2574,15 +2582,15 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
                 <div className="axil-why-choose-area pb--50 pb_sm--30">
                     <div className="container">
                         <div className="section-title-wrapper section-title-center">
-          <span className="title-highlighter highlighter-secondary">
-            <i className="fal fa-thumbs-up"/>
-            Why Us
-          </span>
-                            <h2 className="title">Why People Choose Us</h2>
+                              <span className="title-highlighter highlighter-secondary">
+                                <i className="fal fa-thumbs-up"/>
+                                Why Us
+                              </span>
+                              <h2 className="title">Why People Choose Us</h2>
                         </div>
                         <div className="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row--20">
                             <div className="col">
@@ -2749,6 +2757,7 @@ export const Home = () => {
 
             <Footer
                 isModalOpen={isOpen}
+                isModalCart={isOpenCart}
             />
         </>
     );
