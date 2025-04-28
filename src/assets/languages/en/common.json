@@ -16,7 +16,8 @@
         "home": "Home",
         "shop": "Store",
         "about": "About us",
-        "contact": "Contact us"
+        "contact": "Contact us",
+        "my-account": "My Account"
       }
     },
     "shop": {

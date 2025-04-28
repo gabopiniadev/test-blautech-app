@@ -303,6 +303,8 @@ a.content__text-link[data-fx="14"]:hover::after {
 	background-position: 50% 50%;
 }
 
+.slider-content-activation-one
+
 @media screen and (min-width: 53em) {
 	.message {
 		display: none;

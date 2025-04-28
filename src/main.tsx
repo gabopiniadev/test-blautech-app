@@ -73,7 +73,6 @@ const useLoadScripts = () => {
 
 const App = () => {
     useLoadScripts();
-
     return <AppRouter />;
 };
 

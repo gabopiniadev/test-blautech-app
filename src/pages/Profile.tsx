@@ -45,7 +45,7 @@ export const Profile = () => {
     const fetchProducts = async () => {
         try {
             setIsLoading(true);
-            const response = await fetch("http://localhost:8080/api/products/all", {
+            const response = await fetch("http://localhost:8080/api/product/all", {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ export const Profile = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:8080/api/products", {
+            const response = await fetch("http://localhost:8080/api/product", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -94,7 +94,7 @@ export const Profile = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${updProduct.id}`, {
+            const response = await fetch(`http://localhost:8080/api/product/${updProduct.id}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -118,7 +118,7 @@ export const Profile = () => {
 
     const handleDeleteProduct = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${id}`, {
+            const response = await fetch(`http://localhost:8080/api/product/${id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -557,7 +557,7 @@ export const Profile = () => {
             </main>
             <Footer
                 isModalOpen={false}
-                isModalCart={true}
+                isModalCart={false}
             />
             <Dialog header="Header" visible={visible} onHide={() => {if (!visible) return; setVisible(false); }}  style={{ width: '60vw' }} breakpoints={{ '960px': '75vw', '641px': '100vw' }}>
                 <br />

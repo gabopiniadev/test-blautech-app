@@ -16,8 +16,8 @@ export const Home = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
     const [isPanelOpen, setIsPanelOpen] = useState(false);
     const [isOpenLan, setIsOpenLan] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const [isOpenCart, setIsOpenCart] = useState(false);
+    const [isOpen] = useState(false);
+    const [isOpenCart] = useState(false);
 
     const {t} = useTranslation();
 
@@ -39,14 +39,6 @@ export const Home = () => {
         <>
             <a href="#top" className="back-to-top" id="backto-top"><i className="fal fa-arrow-up"></i></a>
             <header className="header axil-header header-style-1">
-                <div className="header-top-campaign">
-                    <div className="container position-relative">
-                        <div className="campaign-content">
-                            <p>{t('page.header.sub-navbar')} <a href="#">{t('page.header.more')}</a></p>
-                        </div>
-                    </div>
-                    <button className="remove-campaign"><i className="fal fa-times"></i></button>
-                </div>
                 <div className="axil-header-top">
                     <div className="container">
                         <div className="row align-items-center">
@@ -153,7 +145,7 @@ export const Home = () => {
                                         </a>
                                     </li>*/}
                                     <li className="shopping-cart">
-                                        <Link to="/shop" className="cart-dropdown-btn">
+                                        <Link to="/cart" className="cart-dropdown-btn">
                                            {/* <span className="cart-count">3</span>*/}
                                             <i className="flaticon-shopping-cart"></i>
                                         </Link>
@@ -203,9 +195,9 @@ export const Home = () => {
                                             <h1 className="title">Roco Wireless Headphone</h1>
                                             <div className="slide-action">
                                                 <div className="shop-btn">
-                                                    <a href="shop.html" className="axil-btn btn-bg-white">
+                                                    <Link to="/shop" className="axil-btn btn-bg-white">
                                                         <i className="fal fa-shopping-cart"/>  Shop Now
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div className="item-rating">
                                                     <div className="thumb">
@@ -459,7 +451,7 @@ export const Home = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="axil-categorie-area bg-color-white axil-section-gapcommon">
+                <div className="axil-categorie-area bg-color-dark axil-section-gapcommon">
                     <div className="container">
                         <div className="section-title-wrapper">
                               <span className="title-highlighter highlighter-secondary">
@@ -479,10 +471,10 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-4.png"
+                                            src="/src/assets/images/shop/categories/clothes.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Phones</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.clothes')}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -496,10 +488,10 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-5.png"
+                                            src="/src/assets/images/shop/categories/fitness.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Computers</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.fitness')}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -513,10 +505,10 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-11.png"
+                                            src="/src/assets/images/shop/categories/equipment.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Accessories</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.equipment')}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -530,10 +522,10 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-6.png"
+                                            src="/src/assets/images/shop/categories/footwear.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Laptops</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.footwear')}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -547,10 +539,10 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-2.png"
+                                            src="/src/assets/images/shop/categories/outdoors.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Monitors</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.outdoors')}</h6>
                                     </a>
                                 </div>
                             </div>
@@ -564,132 +556,17 @@ export const Home = () => {
                                     <a href="#">
                                         <img
                                             className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-7.png"
+                                            src="/src/assets/images/shop/categories/supplements.png"
                                             alt="product categorie"
                                         />
-                                        <h6 className="cat-title">Networking</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div
-                                    className="categrie-product"
-                                    data-sal="zoom-out"
-                                    data-sal-delay={800}
-                                    data-sal-duration={500}
-                                >
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-8.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">PC Gaming</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div className="categrie-product">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-1.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">Smartwatches</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div className="categrie-product">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-9.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">Headphones</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div className="categrie-product">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-10.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">Camera &amp; Photo</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div className="categrie-product">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-8.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">Video Games</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout">
-                                <div className="categrie-product">
-                                    <a href="#">
-                                        <img
-                                            className="img-fluid"
-                                            src="/src/assets/images/product/categories/elec-1.png"
-                                            alt="product categorie"
-                                        />
-                                        <h6 className="cat-title">Sports</h6>
+                                        <h6 className="cat-title">{t('page.shop.categories.supplements')}</h6>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="axil-poster-countdown">
-                    <div className="container">
-                        <div className="poster-countdown-wrap bg-lighter">
-                            <div className="row">
-                                <div className="col-xl-5 col-lg-6">
-                                    <div className="poster-countdown-content">
-                                        <div className="section-title-wrapper">
-                  <span className="title-highlighter highlighter-secondary">
-                    {" "}
-                      <i className="fal fa-headphones-alt"/> Don’t Miss!!
-                  </span>
-                                            <h2 className="title">Enhance Your Music Experience</h2>
-                                        </div>
-                                        <div className="poster-countdown countdown mb--40"/>
-                                        <a href="#" className="axil-btn btn-bg-primary">
-                                            Check it Out!
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="col-xl-7 col-lg-6">
-                                    <div className="poster-countdown-thumbnail">
-                                        <img
-                                            src="/src/assets/images/product/poster/poster-03.png"
-                                            alt="Poster Product"
-                                        />
-                                        <div className="music-singnal">
-                                            <div className="item-circle circle-1"/>
-                                            <div className="item-circle circle-2"/>
-                                            <div className="item-circle circle-3"/>
-                                            <div className="item-circle circle-4"/>
-                                            <div className="item-circle circle-5"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="axil-product-area bg-color-white axil-section-gap">
+               {/* <div className="axil-product-area bg-color-dark axil-section-gap">
                     <div className="container">
                         <div className="section-title-wrapper">
                             <span className="title-highlighter highlighter-primary">
@@ -749,13 +626,13 @@ export const Home = () => {
                                             <div className="product-content">
                                                 <div className="inner">
                                                     <div className="product-rating">
-                        <span className="icon">
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                        </span>
+                                                        <span className="icon">
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                        </span>
                                                         <span className="rating-number">(64)</span>
                                                     </div>
                                                     <h5 className="title">
@@ -823,19 +700,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -893,19 +770,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -956,13 +833,13 @@ export const Home = () => {
                                             <div className="product-content">
                                                 <div className="inner">
                                                     <div className="product-rating">
-                        <span className="icon">
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                        </span>
+                                                        <span className="icon">
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                        </span>
                                                         <span className="rating-number">(44)</span>
                                                     </div>
                                                     <h5 className="title">
@@ -1031,19 +908,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1106,14 +983,14 @@ export const Home = () => {
                             </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1167,13 +1044,13 @@ export const Home = () => {
                                             <div className="product-content">
                                                 <div className="inner">
                                                     <div className="product-rating">
-                        <span className="icon">
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                          <i className="fas fa-star"/>
-                        </span>
+                                                        <span className="icon">
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                          <i className="fas fa-star"/>
+                                                        </span>
                                                         <span className="rating-number">(64)</span>
                                                     </div>
                                                     <h5 className="title">
@@ -1237,19 +1114,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1353,19 +1230,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1420,19 +1297,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1530,19 +1407,19 @@ export const Home = () => {
                                                     <div className="color-variant-wrapper">
                                                         <ul className="color-variant">
                                                             <li className="color-extra-01 active">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-02">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                             <li className="color-extra-03">
-                            <span>
-                              <span className="color"/>
-                            </span>
+                                                                <span>
+                                                                  <span className="color"/>
+                                                                </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1762,828 +1639,9 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="axil-testimoial-area axil-section-gap bg-vista-white">
-                    <div className="container">
-                        <div className="section-title-wrapper">
-          <span className="title-highlighter highlighter-secondary">
-            {" "}
-              <i className="fal fa-quote-left"/>
-            Testimonials
-          </span>
-                            <h2 className="title">Users Feedback</h2>
-                        </div>
-                        <div
-                            className="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
-                            <div className="slick-single-layout testimonial-style-one">
-                                <div className="review-speech">
-                                    <p>
-                                        “ It’s amazing how much easier it has been to meet new people
-                                        and create instantly non connections. I have the exact same
-                                        personal the only thing that has changed is my mind set and a
-                                        few behaviors. “
-                                    </p>
-                                </div>
-                                <div className="media">
-                                    <div className="thumbnail">
-                                        <img
-                                            src="/src/assets/images/testimonial/image-1.png"
-                                            alt="testimonial image"
-                                        />
-                                    </div>
-                                    <div className="media-body">
-                                        <span className="designation">Head Of Idea</span>
-                                        <h6 className="title">James C. Anderson</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout testimonial-style-one">
-                                <div className="review-speech">
-                                    <p>
-                                        “ It’s amazing how much easier it has been to meet new people
-                                        and create instantly non connections. I have the exact same
-                                        personal the only thing that has changed is my mind set and a
-                                        few behaviors. “
-                                    </p>
-                                </div>
-                                <div className="media">
-                                    <div className="thumbnail">
-                                        <img
-                                            src="/src/assets/images/testimonial/image-2.png"
-                                            alt="testimonial image"
-                                        />
-                                    </div>
-                                    <div className="media-body">
-                                        <span className="designation">Head Of Idea</span>
-                                        <h6 className="title">James C. Anderson</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout testimonial-style-one">
-                                <div className="review-speech">
-                                    <p>
-                                        “ It’s amazing how much easier it has been to meet new people
-                                        and create instantly non connections. I have the exact same
-                                        personal the only thing that has changed is my mind set and a
-                                        few behaviors. “
-                                    </p>
-                                </div>
-                                <div className="media">
-                                    <div className="thumbnail">
-                                        <img
-                                            src="/src/assets/images/testimonial/image-3.png"
-                                            alt="testimonial image"
-                                        />
-                                    </div>
-                                    <div className="media-body">
-                                        <span className="designation">Head Of Idea</span>
-                                        <h6 className="title">James C. Anderson</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="slick-single-layout testimonial-style-one">
-                                <div className="review-speech">
-                                    <p>
-                                        “ It’s amazing how much easier it has been to meet new people
-                                        and create instantly non connections. I have the exact same
-                                        personal the only thing that has changed is my mind set and a
-                                        few behaviors. “
-                                    </p>
-                                </div>
-                                <div className="media">
-                                    <div className="thumbnail">
-                                        <img
-                                            src="/src/assets/images/testimonial/image-2.png"
-                                            alt="testimonial image"
-                                        />
-                                    </div>
-                                    <div className="media-body">
-                                        <span className="designation">Head Of Idea</span>
-                                        <h6 className="title">James C. Anderson</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<div className="axil-new-arrivals-product-area bg-color-white axil-section-gap pb--0">
-                    <div className="container">
-                        <div className="product-area pb--50">
-                            <div className="section-title-wrapper">
-                                <span className="title-highlighter highlighter-primary">
-                                  <i className="far fa-shopping-basket"/>
-                                  This Week’s
-                                </span>
-                                <h2 className="title">New Arrivals</h2>
-                            </div>
-                            <div
-                                className="new-arrivals-product-activation slick-layout-wrapper--30 axil-slick-arrow  arrow-top-slide">
-                                <div className="slick-single-layout">
-                                    <div className="axil-product product-style-two">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-out"
-                                                    data-sal-delay={200}
-                                                    data-sal-duration={500}
-                                                    src="/src/assets/images/product/electric/product-05.png"
-                                                    alt="Product Images"
-                                                />
-                                            </a>
-                                            <div className="label-block label-right">
-                                                <div className="product-badget">10% OFF</div>
-                                            </div>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="inner">
-                                                <div className="color-variant-wrapper">
-                                                    <ul className="color-variant">
-                                                        <li className="color-extra-01 active">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-02">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-03">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 className="title">
-                                                    <a href="single-product.html">Demon's Souls</a>
-                                                </h5>
-                                                <div className="product-price-variant">
-                                                    <span className="price old-price">$40</span>
-                                                    <span className="price current-price">$30</span>
-                                                </div>
-                                                <div className="product-hover-action">
-                                                    <ul className="cart-action">
-                                                        <li className="quickview">
-                                                            <a
-                                                                href="#"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view-modal"
-                                                            >
-                                                                <i className="far fa-eye"/>
-                                                            </a>
-                                                        </li>
-                                                        <li className="select-option">
-                                                            <a href="single-product.html">Add to Cart</a>
-                                                        </li>
-                                                        <li className="wishlist">
-                                                            <a href="wishlist.html">
-                                                                <i className="far fa-heart"/>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="slick-single-layout">
-                                    <div className="axil-product product-style-two">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-out"
-                                                    data-sal-delay={300}
-                                                    data-sal-duration={500}
-                                                    src="/src/assets/images/product/electric/product-06.png"
-                                                    alt="Product Images"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="inner">
-                                                <div className="color-variant-wrapper">
-                                                    <ul className="color-variant">
-                                                        <li className="color-extra-01 active">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-02">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-03">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 className="title">
-                                                    <a href="single-product.html">Google Home</a>
-                                                </h5>
-                                                <div className="product-price-variant">
-                                                    <span className="price old-price">$50</span>
-                                                    <span className="price current-price">$40</span>
-                                                </div>
-                                            </div>
-                                            <div className="product-hover-action">
-                                                <ul className="cart-action">
-                                                    <li className="quickview">
-                                                        <a
-                                                            href="#"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#quick-view-modal"
-                                                        >
-                                                            <i className="far fa-eye"/>
-                                                        </a>
-                                                    </li>
-                                                    <li className="select-option">
-                                                        <a href="single-product.html">Select Option</a>
-                                                    </li>
-                                                    <li className="wishlist">
-                                                        <a href="wishlist.html">
-                                                            <i className="far fa-heart"/>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="slick-single-layout">
-                                    <div className="axil-product product-style-two">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-out"
-                                                    data-sal-delay={400}
-                                                    data-sal-duration={500}
-                                                    src="/src/assets/images/product/electric/product-07.png"
-                                                    alt="Product Images"
-                                                />
-                                            </a>
-                                            <div className="label-block label-right">
-                                                <div className="product-badget">15% OFF</div>
-                                            </div>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="inner">
-                                                <div className="color-variant-wrapper">
-                                                    <ul className="color-variant">
-                                                        <li className="color-extra-01 active">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-02">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-03">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 className="title">
-                                                    <a href="single-product.html">Netfilx Remot</a>
-                                                </h5>
-                                                <div className="product-price-variant">
-                                                    <span className="price old-price">$60</span>
-                                                    <span className="price current-price">$45</span>
-                                                </div>
-                                                <div className="product-hover-action">
-                                                    <ul className="cart-action">
-                                                        <li className="quickview">
-                                                            <a
-                                                                href="#"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view-modal"
-                                                            >
-                                                                <i className="far fa-eye"/>
-                                                            </a>
-                                                        </li>
-                                                        <li className="select-option">
-                                                            <a href="single-product.html">Add to Cart</a>
-                                                        </li>
-                                                        <li className="wishlist">
-                                                            <a href="wishlist.html">
-                                                                <i className="far fa-heart"/>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="slick-single-layout">
-                                    <div className="axil-product product-style-two">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-out"
-                                                    data-sal-delay={500}
-                                                    data-sal-duration={500}
-                                                    src="/src/assets/images/product/electric/product-08.png"
-                                                    alt="Product Images"
-                                                />
-                                            </a>
-                                            <div className="label-block label-right">
-                                                <div className="product-badget">30% OFF</div>
-                                            </div>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="inner">
-                                                <div className="color-variant-wrapper">
-                                                    <ul className="color-variant">
-                                                        <li className="color-extra-01 active">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-02">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-03">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 className="title">
-                                                    <a href="single-product.html">Digital Accessories</a>
-                                                </h5>
-                                                <div className="product-price-variant">
-                                                    <span className="price old-price">$30</span>
-                                                    <span className="price current-price">$20</span>
-                                                </div>
-                                                <div className="product-hover-action">
-                                                    <ul className="cart-action">
-                                                        <li className="quickview">
-                                                            <a
-                                                                href="#"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view-modal"
-                                                            >
-                                                                <i className="far fa-eye"/>
-                                                            </a>
-                                                        </li>
-                                                        <li className="select-option">
-                                                            <a href="single-product.html">Add to Cart</a>
-                                                        </li>
-                                                        <li className="wishlist">
-                                                            <a href="wishlist.html">
-                                                                <i className="far fa-heart"/>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="slick-single-layout">
-                                    <div className="axil-product product-style-two">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-out"
-                                                    data-sal-delay={100}
-                                                    data-sal-duration={500}
-                                                    src="/src/assets/images/product/electric/product-04.png"
-                                                    alt="Product Images"
-                                                />
-                                            </a>
-                                            <div className="label-block label-right">
-                                                <div className="product-badget">50% OFF</div>
-                                            </div>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="inner">
-                                                <div className="color-variant-wrapper">
-                                                    <ul className="color-variant">
-                                                        <li className="color-extra-01 active">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-02">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                        <li className="color-extra-03">
-                          <span>
-                            <span className="color"/>
-                          </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h5 className="title">
-                                                    <a href="single-product.html">PS5 Smart Remote</a>
-                                                </h5>
-                                                <div className="product-price-variant">
-                                                    <span className="price old-price">$50</span>
-                                                    <span className="price current-price">$25</span>
-                                                </div>
-                                                <div className="product-hover-action">
-                                                    <ul className="cart-action">
-                                                        <li className="quickview">
-                                                            <a
-                                                                href="#"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#quick-view-modal"
-                                                            >
-                                                                <i className="far fa-eye"/>
-                                                            </a>
-                                                        </li>
-                                                        <li className="select-option">
-                                                            <a href="single-product.html">Add to Cart</a>
-                                                        </li>
-                                                        <li className="wishlist">
-                                                            <a href="wishlist.html">
-                                                                <i className="far fa-heart"/>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>*/}
-                {/*<div className="axil-most-sold-product axil-section-gap">
-                    <div className="container">
-                        <div className="product-area pb--50">
-                            <div className="section-title-wrapper section-title-center">
-                                <span className="title-highlighter highlighter-primary">
-                                  <i className="fas fa-star"/> Most Sold
-                                </span>
-                                <h2 className="title">Most Sold in eTrade Store</h2>
-                            </div>
-                            <div className="row row-cols-xl-2 row-cols-1 row--15">
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={100}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-09.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>100+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Media Remote</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$29.99</span>
-                                                <span className="price old-price">$49.99</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={200}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-10.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>50+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">HD Camera</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$49.99</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={300}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-11.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>120+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Gaming Controller</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$50.00</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={400}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-12.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>30+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Wall Mount </a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$19.00</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={500}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-13.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>700+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Lenevo Laptop</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$999.99</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={600}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-14.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>300+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Juice Grinder Machine</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$99.00</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={400}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-15.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>100+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Wireless Headphone</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$59.99</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="axil-product-list">
-                                        <div className="thumbnail">
-                                            <a href="single-product.html">
-                                                <img
-                                                    data-sal="zoom-in"
-                                                    data-sal-delay={500}
-                                                    data-sal-duration={1500}
-                                                    src="/src/assets/images/product/electric/product-16.png"
-                                                    alt="Yantiti Leather Bags"
-                                                />
-                                            </a>
-                                        </div>
-                                        <div className="product-content">
-                                            <div className="product-rating">
-                    <span className="rating-icon">
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fas fa-star"/>
-                      <i className="fal fa-star"/>
-                    </span>
-                                                <span className="rating-number">
-                      <span>100+</span> Reviews
-                    </span>
-                                            </div>
-                                            <h6 className="product-title">
-                                                <a href="single-product.html">Asus Zenbook Laptop</a>
-                                            </h6>
-                                            <div className="product-price-variant">
-                                                <span className="price current-price">$899.00</span>
-                                            </div>
-                                            <div className="product-cart">
-                                                <a href="cart.html" className="cart-btn">
-                                                    <i className="fal fa-shopping-cart"/>
-                                                </a>
-                                                <a href="wishlist.html" className="cart-btn">
-                                                    <i className="fal fa-heart"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*/}
-                <div className="axil-why-choose-area pb--50 pb_sm--30">
+                
+                <div className="axil-why-choose-area pb--50 pb_sm--30 bg-color-dark">
                     <div className="container">
                         <div className="section-title-wrapper section-title-center">
                               <span className="title-highlighter highlighter-secondary">
@@ -2636,52 +1694,8 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="axil-poster">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-6 mb--30">
-                                <div className="single-poster">
-                                    <a href="shop.html">
-                                        <img
-                                            src="/src/assets/images/product/poster/poster-01.png"
-                                            alt="eTrade promotion poster"
-                                        />
-                                        <div className="poster-content">
-                                            <div className="inner">
-                                                <h3 className="title">
-                                                    Rich sound, <br/> for less.
-                                                </h3>
-                                                <span className="sub-title">
-                      Collections <i className="fal fa-long-arrow-right"/>
-                    </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 mb--30">
-                                <div className="single-poster">
-                                    <a href="shop-sidebar.html">
-                                        <img
-                                            src="/src/assets/images/product/poster/poster-02.png"
-                                            alt="eTrade promotion poster"
-                                        />
-                                        <div className="poster-content content-left">
-                                            <div className="inner">
-                                                <span className="sub-title">50% Offer In Winter</span>
-                                                <h3 className="title">
-                                                    Get VR <br/> Reality Glass
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="axil-newsletter-area axil-section-gap pt--0">
+                <div className="axil-newsletter-area axil-section-gap pt--0 bg-color-dark">
                     <div className="container">
                         <div className="etrade-newsletter-wrapper bg_image bg_image--5">
                             <div className="newsletter-content">
@@ -2704,7 +1718,7 @@ export const Home = () => {
                 </div>
             </main>
 
-            <div className="service-area">
+            <div className="service-area bg-color-dark">
                 <div className="container">
                     <div className="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
                         <div className="col">

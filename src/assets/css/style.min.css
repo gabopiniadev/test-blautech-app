@@ -78,8 +78,13 @@
     box-sizing: border-box
 }
 
+a {
+    color: #c1d6cc;
+}
+
 article, aside, details, figcaption, figure, footer, header, nav, section, summary {
-    display: block
+    display: block;
+    background-color: #27272e;
 }
 
 audio, canvas, video {
@@ -965,7 +970,8 @@ ol ul {
 }
 
 .bg_image--5 {
-    background-image: url(../images/bg/bg-image-5.jpg)
+   /* background-image: url(../images/bg/bg-image-5.jpg)*/
+    background-image: url(../images/shop/footer/sports.jpg)
 }
 
 .bg_image--6 {
@@ -1045,6 +1051,10 @@ ol ul {
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     padding-left: 15px;
     padding-right: 15px
+}
+
+.container p {
+    color: #c1d6cc;
 }
 
 .row {
@@ -2786,7 +2796,8 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
 }
 
 .axil-categorie-area .section-title-wrapper .title {
-    margin-bottom: 0
+    margin-bottom: 0;
+    color: wheat;
 }
 
 @media only screen and (max-width: 767px) {
@@ -3710,6 +3721,10 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
     padding-right: 100px
 }
 
+.section-title-wrapper h2 {
+    color: wheat;
+}
+
 @media only screen and (max-width: 767px) {
     .section-title-wrapper {
         margin-bottom: 30px
@@ -4493,7 +4508,8 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
     letter-spacing: -0.03em;
     margin-bottom: 50px;
     font-size: 60px;
-    line-height: 1.2
+    line-height: 1.2;
+    color: wheat;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -4708,7 +4724,7 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
 }
 
 .main-slider-style-1 {
-    background-color: #f9f3f0;
+    background-color: #27272E;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -6189,6 +6205,22 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
     transform: scale(1.1)
 }
 
+.main-wrapper {
+    background-color: #27272e;
+}
+
+.service-area {
+    background-color: #27272e;
+}
+
+.single-product-thumb {
+    background-color: #27272e;
+}
+
+.axil-product-area {
+    background-color: #27272e;
+}
+
 .pv-main-wrapper .section-title-wrapper {
     padding-right: 0
 }
@@ -7201,7 +7233,8 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
 .axil-mainmenu .header-navbar {
     display: flex;
     align-items: center;
-    width: 100%
+    width: 100%;
+    background-color: white
 }
 
 .axil-mainmenu .header-navbar .header-main-nav {
@@ -7236,7 +7269,7 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
 }
 
 .header-style-1 {
-    background-color: #f9f3f0;
+    background-color: #27272E;
     padding-bottom: 30px
 }
 
@@ -8820,7 +8853,8 @@ a.axil-btn.btn-size-md i, button.axil-btn.btn-size-md i {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 -24px
+    margin: 0 -24px;
+    background-color: white
 }
 
 @media only screen and (max-width: 1199px) {
@@ -13468,7 +13502,8 @@ body.open .closeMask {
 .axil-dashboard-aside {
     border: 1px solid var(--color-light);
     padding: 40px 35px 30px;
-    border-radius: 6px
+    border-radius: 6px;
+    background-color: #fff;
 }
 
 @media only screen and (min-width: 768px)and (max-width: 991px) {
@@ -13484,7 +13519,8 @@ body.open .closeMask {
 }
 
 .axil-dashboard-aside .nav-tabs {
-    border-bottom: none
+    border-bottom: none;
+    background-color: #fff;
 }
 
 .axil-dashboard-aside .nav-link {
@@ -14475,6 +14511,10 @@ body.open .closeMask {
     margin-bottom: 40px
 }
 
+.axil-footer-widget .inner span {
+    color: #c1d6cc;
+}
+
 .axil-footer-widget .widget-title {
     font-size: 18px;
     font-weight: 500;
@@ -14500,7 +14540,7 @@ body.open .closeMask {
 }
 
 .axil-footer-widget .inner ul li a {
-    color: var(--color-body);
+    color: #c1d6cc;
     font-weight: 500;
     font-size: 16px;
     transition: .3s;
@@ -14571,7 +14611,7 @@ body.open .closeMask {
 .copyright-default .quick-link li {
     padding: 15px;
     position: relative;
-    color: var(--color-body);
+    color: #c1d6cc;
     font-weight: 500;
     font-size: 14px
 }
@@ -14655,7 +14695,7 @@ body.open .closeMask {
 }
 
 .copyright-default .copyright-right span.card-text {
-    color: var(--color-body);
+    color: #c1d6cc;
     font-size: 14px;
     font-weight: 500;
     display: inline-block;

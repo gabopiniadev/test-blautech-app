@@ -10,8 +10,14 @@ export const Header = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [cartItemsCount, setCartItemsCount] = useState(0);
+    const [isOpenLan, setIsOpenLan] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const token = localStorage.getItem("token");
+
+    const toggleLanguageDropdown = () => {
+        setIsOpenLan((prev) => !prev);
+    };
 
     const fetchCartItemCount = async () => {
         try {
@@ -49,7 +55,7 @@ export const Header = () => {
     };
     return (
         <>
-            <header className="header axil-header header-style-5">
+            <header className="header axil-header header-style-1">
                 <div className="axil-header-top">
                     <div className="container">
                         <div className="row align-items-center">
@@ -59,26 +65,32 @@ export const Header = () => {
                                         <button
                                             className="dropdown-toggle"
                                             type="button"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
+                                            aria-expanded={isOpen}
+                                            onClick={toggleLanguageDropdown}
                                         >
                                             {t(`page.header.languages.${selectedLanguage}`)}
                                         </button>
-                                        <ul className="dropdown-menu">
+                                        <ul className={`dropdown-menu ${isOpenLan ? 'show' : ''}`}>
                                             <li>
                                                 <a
                                                     className="dropdown-item"
-                                                    onClick={() => changeLanguage('en')}
+                                                    onClick={() => {
+                                                        changeLanguage('en');
+                                                        setIsOpenLan(false);
+                                                    }}
                                                 >
-                                                    {t(`page.header.languages.en`)}
+                                                    {t('page.header.languages.en')}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a
                                                     className="dropdown-item"
-                                                    onClick={() => changeLanguage('es')}
+                                                    onClick={() => {
+                                                        changeLanguage('es');
+                                                        setIsOpenLan(false);
+                                                    }}
                                                 >
-                                                    {t(`page.header.languages.es`)}
+                                                    {t('page.header.languages.es')}
                                                 </a>
                                             </li>
                                         </ul>
@@ -130,7 +142,7 @@ export const Header = () => {
                     <div className="container">
                         <div className="header-navbar">
                             <div className="header-brand">
-                                <Link to="/home" className="logo logo-dark">
+                                <Link to="/" className="logo logo-dark">
                                     <img src={logoNav} alt="Site Logo"/>
                                 </Link>
                             </div>
@@ -140,7 +152,7 @@ export const Header = () => {
                                         <i className="fas fa-times"/>
                                     </button>
                                     <div className="mobile-nav-brand">
-                                        <Link to="/home" className="logo logo-dark">
+                                        <Link to="/" className="logo logo-dark">
                                             <img src={logoNav} alt="Site Logo"/>
                                         </Link>
                                     </div>
@@ -153,35 +165,6 @@ export const Header = () => {
                             </div>
                             <div className="header-action">
                                 <ul className="action-list">
-                                    {/*<li className="axil-search d-xl-block d-none">
-                                        <input
-                                            type="search"
-                                            className="placeholder product-search-input"
-                                            name="search2"
-                                            id="search2"
-                                            defaultValue=""
-                                            maxLength={128}
-                                            placeholder="What are you looking for?"
-                                            autoComplete="off"
-                                        />
-                                        <button type="submit" className="icon wooc-btn-search">
-                                            <i className="flaticon-magnifying-glass" />
-                                        </button>
-                                    </li>*/}
-                                    {/*<li className="axil-search d-xl-none d-block">
-                                        <a
-                                            href="javascript:void(0)"
-                                            className="header-search-icon"
-                                            title="Search"
-                                        >
-                                            <i className="flaticon-magnifying-glass" />
-                                        </a>
-                                    </li>*/}
-                                    {/*<li className="wishlist">
-                                        <a href="wishlist.html">
-                                            <i className="flaticon-heart" />
-                                        </a>
-                                    </li>*/}
                                     {isAuthenticated && (
                                         <>
                                             <li className="shopping-cart">
@@ -203,31 +186,6 @@ export const Header = () => {
                                         </>
                                     )}
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="header-top-campaign">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-xl-5 col-lg-6 col-md-10">
-                                <div
-                                    className="header-campaign-activation axil-slick-arrow arrow-both-side header-campaign-arrow">
-                                    <div className="slick-slide">
-                                        <div className="campaign-content">
-                                            <p>
-                                                STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="slick-slide">
-                                        <div className="campaign-content">
-                                            <p>
-                                                STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
